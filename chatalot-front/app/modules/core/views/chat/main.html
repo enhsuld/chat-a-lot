@@ -1,0 +1,45 @@
+<div class="scrollable ng-scope">
+  <div class="scrollable-content section container">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Chat</h3>
+      </div>
+      <div class="panel-body">
+        <div class="row ">
+          <div class="col-md-8">
+            <div ng-include src="'modules/core/views/chat/chatPanel.html'"></div>
+          </div>
+          <div class="col-md-4">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                FRIENDS
+              </div>
+              <div class="panel-body pre-scrollable">
+                <ul class="media-list">
+
+                  <li class="media" ng-repeat="friend in friends" ng-click="showSession(friend.username)">
+
+                    <div class="media-body">
+
+                      <div class="media">
+                        <a class="pull-left">
+                          <img class="media-object img-circle" style="max-height:40px;" src="img/user.png"/>
+                        </a>
+                        <div class="media-body">
+                          <h5>{{friend.name}} <small>[{{friend.username}}]</small> </h5>
+                          <small class="text-muted" ng-show="!friend.online">offline</small>
+                          <small class="text-success" ng-show="friend.online"><strong>online </strong></small>
+                          <span class="glyphicon glyphicon-flash" ng-show="hasNewMessages(friend.username)"></span>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

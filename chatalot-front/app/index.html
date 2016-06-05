@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+  <base href="/">
+  <meta charset="utf-8">
+  <title>chat-a-lot!</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- build:css styles/vendor.css -->
+  <!-- injector:bowercss -->
+  <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="lib/mobile-angular-ui/dist/css/mobile-angular-ui-hover.css">
+  <link rel="stylesheet" href="lib/mobile-angular-ui/dist/css/mobile-angular-ui-base.css">
+  <link rel="stylesheet" href="lib/mobile-angular-ui/dist/css/mobile-angular-ui-desktop.css">
+  <link rel="stylesheet" href="lib/angular-material/angular-material.css">
+  <!-- endinjector -->
+  <!-- endbuild -->
+
+  <!-- build:css styles/custom.css -->
+  <!-- injector:css -->
+  <link rel="stylesheet" href="css/demo.css">
+  <!-- endinjector -->
+  <!-- endbuild -->
+</head>
+
+<body ng-controller="AppController">
+<!--      <div class="sidebar sidebar-left">&lt;!&ndash; ... &ndash;&gt;</div>
+      <div class="sidebar sidebar-right">&lt;!&ndash; ... &ndash;&gt;</div>-->
+<!--<div class="container">-->
+  <div ng-include src="'navigation.html'" ng-show="showNavBar"></div>
+  <div class="app">
+    <div class='app-body'>
+      <div class='app-content'>
+        <ui-view class="ng-scope"></ui-view>
+      </div>
+    </div>
+  </div>
+<!--</div>-->
+<!-- Modals and Overlays -->
+<div ui-yield-to="modals"></div>
+
+<!-- build:js scripts/vendor.js -->
+<!-- injector:bowerjs -->
+<script src="lib/jquery/dist/jquery.js"></script>
+<script src="lib/bootstrap/dist/js/bootstrap.js"></script>
+<script src="lib/angular/angular.js"></script>
+<script src="lib/angular-resource/angular-resource.js"></script>
+<script src="lib/angular-mocks/angular-mocks.js"></script>
+<script src="lib/angular-cookies/angular-cookies.js"></script>
+<script src="lib/angular-animate/angular-animate.js"></script>
+<script src="lib/angular-sanitize/angular-sanitize.js"></script>
+<script src="lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="lib/angular-ui-utils/ui-utils.js"></script>
+<script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="lib/mobile-angular-ui/dist/js/mobile-angular-ui.js"></script>
+<script src="lib/mobile-angular-ui/dist/js/mobile-angular-ui.gestures.js"></script>
+<script src="lib/ng-file-upload/ng-file-upload.js"></script>
+<script src="lib/angular-base64/angular-base64.js"></script>
+<script src="lib/jsog/lib/JSOG.js"></script>
+<script src="lib/sockjs-client/dist/sockjs.js"></script>
+<script src="lib/stomp-websocket/lib/stomp.min.js"></script>
+<script src="lib/lodash/lodash.js"></script>
+<script src="lib/angular-scroll-glue/src/scrollglue.js"></script>
+<script src="lib/angular-aria/angular-aria.js"></script>
+<script src="lib/angular-messages/angular-messages.js"></script>
+<script src="lib/angular-material/angular-material.js"></script>
+<!-- endinjector -->
+<!-- endbuild -->
+
+<!-- build:js scripts/custom.js -->
+<!-- injector:js -->
+<script src="js/config.js"></script>
+<script src="js/application.js"></script>
+<script src="js/navbarController.js"></script>
+<script src="js/appController.js"></script>
+<script src="modules/core/core.js"></script>
+<script src="modules/login/login.js"></script>
+<script src="modules/core/config/routes.js"></script>
+<script src="modules/login/config/routes.js"></script>
+<script src="modules/core/services/chatService.js"></script>
+<script src="modules/core/services/profileService.js"></script>
+<script src="modules/login/services/authProvider.js"></script>
+<script src="modules/login/services/loginService.js"></script>
+<script src="modules/login/services/registerService.js"></script>
+<script src="modules/login/directives/pwCheck.js"></script>
+<script src="modules/core/controllers/chat.js"></script>
+<script src="modules/core/controllers/profile.js"></script>
+<script src="modules/login/controllers/login.js"></script>
+<script src="modules/login/controllers/register.js"></script>
+<!-- endinjector -->
+<!-- endbuild -->
+
+</body>
+</html>

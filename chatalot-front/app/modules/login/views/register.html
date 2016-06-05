@@ -1,0 +1,115 @@
+<div class="scrollable login-container">
+  <div class="row">
+    <div class="col-sm-5 col-md-6 col-lg-6 col-centered">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Login!</h3>
+        </div>
+        <div class="panel-body">
+          <form class="ng-pristine form-horizontal"
+                ng-class="{submitted:registerForm.$submitted}"
+                role="form" name="registerForm" novalidate ng-submit="registerUser();">
+            <h3>Register!</h3>
+            <p class="well lead">
+              <small> Please fill the fields below to register.</small>
+            </p>
+            <div class="form-group has-success has-feedback form-group-sm">
+              <div class="col-xs-3 text-right">
+                <label class="control-label">
+                  Name
+                </label>
+              </div>
+              <div class="col-xs-7">
+                <input type="string" ng-model="userDetails.name" name="name" required
+                       class="form-control ng-pristine ng-valid needsclick ng-touched"/>
+              </div>
+              <div class="col-xs-2">
+          <span ng-show="registerForm.$submitted && registerForm.name.$error.required"
+                class="pull-left">Required!</span>
+              </div>
+            </div>
+            <div class="form-group has-success has-feedback form-group-sm">
+              <div class="col-xs-3 text-right">
+                <label class="control-label">
+                  Username
+                </label>
+              </div>
+              <div class="col-xs-7">
+                <input type="string" ng-model="userDetails.username" name="userName" required
+                       class="form-control ng-pristine ng-valid needsclick ng-touched input-small"/>
+              </div>
+              <div class="col-xs-2">
+                <span ng-show="registerForm.$submitted && registerForm.userName.$error.required">Required!</span>
+              </div>
+            </div>
+            <div class="form-group has-success has-feedback form-group-sm">
+              <div class="col-xs-3 text-right">
+                <label class="control-label">
+                  Password
+                </label>
+              </div>
+              <div class="col-xs-7">
+                <input type="password" ng-model="userDetails.password" id="password" name="password"
+                       required ng-minlength="8"
+                       class="form-control ng-pristine ng-valid needsclick ng-touched input-small"/>
+              </div>
+              <div class="col-xs-2">
+                <span ng-show="registerForm.$submitted && registerForm.password.$error.required">Required!</span>
+                <span ng-show="registerForm.$submitted && registerForm.password.$error.minlength">Too short!</span>
+              </div>
+            </div>
+            <div class="form-group has-success has-feedback form-group-sm">
+              <div class="col-xs-3 text-right">
+                <label class="control-label">
+                  Confirm
+                </label>
+              </div>
+              <div class="col-xs-7">
+                <input type="password" ng-model="confirmPassword" name="confirmPassword" required
+                       pw-check="password"
+                       class="form-control ng-pristine ng-valid needsclick ng-touched input-small"/>
+              </div>
+              <div class="col-xs-2">
+          <span ng-show="registerForm.$submitted &&
+          registerForm.confirmPassword.$error.required">Required!</span>
+          <span ng-show="registerForm.confirmPassword.$dirty
+          && !registerForm.confirmPassword.$error.pwmatch">Match!</span>
+              </div>
+            </div>
+            <div class="form-group has-success has-feedback form-group-sm">
+              <div class="col-xs-3 text-right">
+                <label class="control-label">
+                  Email
+                </label>
+              </div>
+              <div class="col-xs-7">
+                <input type="email" ng-model="userDetails.emailAddress" name="email" required
+                       class="form-control ng-pristine ng-valid needsclick ng-touched input-small"/>
+              </div>
+              <div class="col-xs-2">
+                <span ng-show="registerForm.$submitted && registerForm.email.$error.required">Required!</span>
+              </div>
+            </div>
+            <div class="alert alert-danger" ng-show="globalErrors != null && globalErrors.length > 0">
+              <ul>
+                <li ng-repeat="error in globalErrors">{{error}}</li>
+              </ul>
+            </div>
+            <div class="form-group form-group-sm">
+              <div class="col-xs-4">
+                <input type="submit" class="btn btn-primary btn-block"/>
+              </div>
+              <div class="col-xs-4">
+                <button ng-click="reset()" class="btn btn-block" type="button">Reset</button>
+              </div>
+              <div class="col-xs-4">
+                <button ng-click="goLogin()" class="btn btn-block">Login</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

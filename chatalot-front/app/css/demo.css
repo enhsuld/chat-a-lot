@@ -1,0 +1,65 @@
+/*body {
+    opacity: 1;
+    -webkit-transition: opacity 1s ease;
+    -moz-transition: opacity 1s ease;
+    transition: opacity 1s;
+}*/
+
+form.submitted .ng-invalid {
+    border: 1px solid red !important;
+}
+
+.login-container {
+    padding-top: 30px;
+}
+
+
+.navbar {
+  margin-bottom: 0px !important;
+}
+
+.navbar .nav{
+  margin-top: 7.5px !important;
+  margin-left: 100px !important;
+}
+
+.form-horizontal .form-group
+{
+  padding: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+div[class^="col-xs-"], div[class*="col-xs-"] {
+  padding: 4px;
+}
+
+.form-horizontal .form-group label,
+.form-horizontal .form-group span
+{
+  height: 12px;
+  line-height: 12px;
+  font-size: 11px;
+}
+
+.caret.up {
+  border-bottom: 5px solid;
+}
+.caret.right {
+  border-left: 5px solid;
+}
+.caret.down {
+  border-top: 5px solid;
+}
+.caret.left {
+  border-right: 5px solid;
+}
+
+.col-centered{
+  float: none;
+  margin: 0 auto;
+}
+
+.scrollable{
+  padding-bottom: 70px;
+}

@@ -1,0 +1,8 @@
+build/
+dist/
+out/
+nbproject/private/
+lib/nblibraries-private.properties
+target/
+.idea/
+*.iml

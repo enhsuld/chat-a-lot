@@ -1,0 +1,45 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: mustafa
+      preConditions:
+        - sqlCheck:
+            expectedResult: 0
+            sql: SELECT count(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'ROLE' AND TABLE_SCHEMA = 'public';
+      changes:
+        - createTable:
+            catalogName: COLLABORADB
+            columns:
+            - column:
+                name: id
+                type: varchar(50)
+            - column:
+                name: name
+                type: varchar(50)
+            - column:
+                name: description
+                type: varchar(50)
+            schemaName: public
+            remarks: A String
+            tableName: ROLE
+            tablespace: A String
+  - changeSet:
+      id: 2
+      author: mustafa
+      preConditions:
+        - sqlCheck:
+            expectedResult: 0
+            sql: select count(*) from role where id = 'ROLE_USER';
+      changes:
+        - insert:
+            tableName: role
+            columns:
+              - column:
+                  name: id
+                  value: ROLE_USER
+              - column:
+                  name: name
+                  value: User Role
+              - column:
+                  name: description
+                  value: Basic user role

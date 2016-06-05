@@ -1,0 +1,34 @@
+<div class="panel panel-info" ng-show="activeSession != null">
+  <div class="panel-heading">
+    Chat with {{activeSession.user.name}}
+  </div>
+  <div class="panel-body pre-scrollable" scroll-glue="true">
+    <ul class="media-list">
+      <li class="media" ng-repeat="message in activeSession.messages">
+        <div class="media-body">
+          <div class="media">
+            <a class="pull-left" href="#">
+              <strong>{{message.from == activeSession.user.username?activeSession.user.username:'you'}}</strong>
+            </a>
+            <div class="media-body">
+              {{message.message}}
+              <br/>
+              <small class="text-muted">{{message.date | date:'mediumTime'}}</small>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="panel-footer">
+    <form role="form">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Enter Message" ng-model="activeSession.message"/>
+            <span class="input-group-btn">
+              <input type="submit" value="SEND" ng-class="activeSession.user.online?'active':'disabled'"
+                     class="btn btn-primary focus" ng-click="sendMessage()"/>
+            </span>
+      </div>
+    </form>
+  </div>
+</div>

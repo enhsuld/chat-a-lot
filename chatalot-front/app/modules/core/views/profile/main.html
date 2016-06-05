@@ -1,0 +1,131 @@
+<div class="scrollable ng-scope">
+  <div class="scrollable-content section container-fluid">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Profile</h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-sm-5 col-md-8 col-lg-8">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-5 col-md-6 col-lg-5" style="height:300px;">
+                  <img data-ng-src="data:{{profile.profilePictureType}};base64,{{profile.profilePicture}}"
+                       ng-show="isPictureAvailable()" style="height: 250px;"/>
+                  <img src="img/profile-picture.jpg" ng-show="!isPictureAvailable()" style="height: 250px;"/>
+                  <br>
+                  <button class="btn btn-block" type="file" ngf-select="uploadProfilePicture($file)"
+                          accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">
+                    Upload Picture
+                  </button>
+                  <br>
+                  <div>{{f.name}}
+                  <span class="progress" ng-show="f.progress >= 0">
+                      <div style="width:{{f.progress}}%"
+                           ng-bind="f.progress + '%'"></div>
+                  </span>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-5 col-md-6 col-lg-8">
+                  <form class="ng-pristine form-horizontal"
+                        ng-class="{submitted:profileForm.$submitted}"
+                        role="form" name="profileForm" novalidate>
+
+                    <div class="bs-callout bs-callout-info">
+                      <h4><span ng-show="!editingProfile">{{profile.name}}</span>
+                        <input type="string" ng-model="profile.name"
+                               class="ng-pristine ng-valid needsclick ng-touched"
+                               name="name" required ng-show="editingProfile"/>
+                        <small>[<strong>{{profile.username}}</strong>]</small>
+                        <span ng-show="!editingProfile"><small>{{profile.emailAddress}}</small></span>
+                        <input type="string" ng-model="profile.emailAddress" name="name" required
+                               class="ng-pristine ng-valid needsclick ng-touched"
+                               ng-show="editingProfile"/>
+                    <span class="glyphicon glyphicon-edit" ng-show="!editingProfile" ng-click="editProfile()"></span>
+                    <span class="glyphicon glyphicon-ok-sign"
+                          ng-show="editingProfile"
+                          ng-click="saveProfile()"></span>
+                      </h4>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="row">
+                        <div class="col-md-5">
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="panel panel-default">
+                                <div class="panel-heading">
+                                  <h3 class="panel-title">
+                                    Invite
+                                  </h3>
+                                </div>
+                                <div class="panel-body">
+                                  <span ng-repeat="user in invitableUsers">
+                                    <div><a>{{user.name}}</a> [<a ng-click="invite(user.id)">invite</a>]</div>
+                                  </span>
+                                </div>
+                              </div>
+                              <div class="panel panel-default">
+                                <div class="panel-heading">
+                                  <h3 class="panel-title">
+                                    Pending
+                                  </h3>
+                                </div>
+                                <div class="panel-body">
+                                  <span ng-repeat="invite in profile.invites | filter:{accepted:false}">
+                                    <div><a>{{invite.toUser}}</a></div>
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-5 col-md-offset-1 pull-right">
+                          <div class="panel panel-default">
+                            <div class="panel-heading">
+                              <h3 class="panel-title">
+                                Accept
+                              </h3>
+                            </div>
+                            <div class="panel-body">
+                              <span ng-repeat="invite in profile.requested | filter:{accepted:false}">
+                                    <div><a>{{invite.fromUser}}</a>[<a ng-click="accept(invite.id)">accept</a>]</div>
+                              </span>
+                            </div>
+                          </div>
+                          <div class="panel panel-default">
+                            <div class="panel-heading">
+                              <h3 class="panel-title">
+                                Friends
+                              </h3>
+                            </div>
+                            <div class="panel-body">
+                              <span ng-repeat="user in profile.friends">
+                                    <div><a>{{user.name}}</a></div>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,35 @@
+<div class="navbar navbar-default" ng-controller="NavBarController">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="" ui-sref="chat.main" style="color: #0d3349">Chat-A-Lot!</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul ng-repeat="(side, submenu) in menu" class="nav navbar-nav navbar-{{side}}">
+        <li ng-repeat="(title,items) in submenu" class="dropdown" ng-if="isSubMenu(items)">
+          <a href="#" class="dropdown-toggle"
+             data-toggle="dropdown"
+             role="button"
+             aria-haspopup="true"
+             aria-expanded="true"
+             ng-click="toggleDropDown($index)">{{title}}
+          <span class="glyphicon glyphicon-chevron-right"
+                ng-class="dropDownState[$index]?'glyphicon glyphicon-chevron-down':'glyphicon glyphicon-chevron-right'"
+                ng-init="dropDownState[$index] = false">
+          </span>
+          </a>
+          <ul class="dropdown-menu">
+            <li ng-repeat="(state,item) in items">
+              <a href="" ui-sref={{state}}>{{item}}</a>
+            </li>
+          </ul>
+        </li>
+        <li ng-repeat="(state,item) in submenu" ng-if="isMainMenuItem(item)">
+          <a href="" ui-sref={{state}}>{{item}}</a>
+        </li>
+        <li ng-if="side==='right'">
+          <small>username: <strong>{{username}}</strong></small>
+          <a href="" ng-click="logOut()"> Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+# EditorConfig is awesome: you can find properties/settings list in ->
+#  https://github.com/editorconfig/editorconfig/wiki/EditorConfig-Properties
+
+# top-most EditorConfig file
+root = true
+
+# Unix-style newlines with a newline ending every file
+[*]
+end_of_line = lf
+insert_final_newline = true
+
+# 2 tab indentation (before including this file you were using 2 tab indentation (I prefer  4 space))
+[*]
+indent_style = tab
+indent_size = 2
+
+
+
+
+
+
+
+
+## -----EXAMPLES----
+## Indentation override for all JS under lib directory
+#[lib/**.js]
+#indent_style = space
+#indent_size = 2
+
+# Matches the exact files either package.json or .travis.yml
+[*.yml]
+indent_style = space
+indent_size = 4
